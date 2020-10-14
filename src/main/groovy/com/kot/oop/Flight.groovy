@@ -16,13 +16,15 @@ class Flight {
         this.number = number
     }
 
-    Duration flightTime() {
+    def flightTime() {
         Duration.between(startTime, landingTime)
     }
 
-    String flightNumber() {
+    def flightNumber() {
         carrier+number
     }
+
+
 
     class Builder {
 
@@ -30,27 +32,27 @@ class Flight {
         private String carrier
         private JourneyClass flightJourneyClass
 
-        Builder withNumber(String number) {
+        def withNumber(String number) {
             flightNumber = number
             return this
         }
 
-        Builder withBusinessClass() {
+        def withBusinessClass() {
             flightJourneyClass = JourneyClass.BUSINESS
             return this
         }
 
-        Builder withCarrier(String carrier) {
+        def withCarrier(String carrier) {
             this.carrier = carrier
             return this
         }
 
-        Builder withEconomyClass() {
+        def withEconomyClass() {
             flightJourneyClass = JourneyClass.ECONOMY
             return this
         }
 
-        Flight build() {
+        def build() {
             return new Flight(carrier, flightNumber)
         }
 
